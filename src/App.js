@@ -10,23 +10,10 @@ import ListOfPost from './Components/ListOfPost';
 function App() {
 
 const [page, setPage] = useState(0);
-const [postList,setData] = React.useState(initializePostArray())
- 
-async function addArray(newPage){
-  let postsObject = await getPostByPage(page,20);
-  let newPostArray = postList.push(...postsObject.data);
-  setData(newPostArray);
-}
-
-async function initializePostArray(){
-  let postsObject = await getPostByPage(0,20);
-  let newPostArray = postsObject.data;
-  return newPostArray;
-}
 
   return (
     <div className="App">
-      <ListOfPost posts={postList}></ListOfPost>
+      <ListOfPost pageNumber={page}></ListOfPost>
     </div>
   );
 }

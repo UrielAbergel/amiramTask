@@ -29,10 +29,11 @@ export default function ListOfPost(pageNumber) {
     return (
         <div>
         <Container>
+            {console.log(postList)}
             <Grid container spacing={3}>
                 {postList.map((post) => (
                     <Grid item key={post.id} xs={12} md={6} lg={4}>
-                        <Post imgU={post.image} b={post}/> 
+                        <Post post={post}/> 
                     </Grid>
                 ))}
             </Grid>
