@@ -16,6 +16,7 @@ export default function ListOfPost() {
     let newPosts = [...postList];
     let tempPosts = [...postsObject.data];
     let temp = [...newPosts, ...tempPosts];
+    console.log(page)
     setPage(newPageNumber)   
     setData(temp)
     
@@ -30,12 +31,6 @@ export default function ListOfPost() {
         }
     }
 
-    function handleChangePage(){
-        let currentPage = page;
-        setPage(currentPage + 1);
-    }
-
-
     return (
         <div>
         <Container>
@@ -44,7 +39,7 @@ export default function ListOfPost() {
                     {postList.map((post, index) => (
                         <Grid item key={post.id} xs={12} md={6} lg={4}>
                             <Post post={post}/> 
-                            { index === postList.length - 3 && (
+                            { index === postList.length - 10 && (
                                 <Waypoint onEnter={() => addArray(page+1)}/> 
                             )}
                         </Grid>
